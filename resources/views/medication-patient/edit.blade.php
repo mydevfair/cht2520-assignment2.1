@@ -1,0 +1,73 @@
+@extends('layouts.app')
+
+@section('title', 'Edit Medication Prescription')
+
+@section('content')
+    <h2>Edit Prescription for {{ $patient->name }}</h2>
+    <h4 style="color: #666; margin-top: 5px;">{{ $medication->name }}</h4>
+
+    <div class="mb-3">
+        <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-secondary">
+            ← Back to Patient Details
+        </a>
+    </div>
+
+    <form method="POST" action="{{ route('patients.medications.update', [$patient->id, $medication->id]) }}">
+        @csrf
+        @method('PUT')
+
+        <div class="form-group">
+            @error('frequency')
+            <div class="alert alert-error">{{ $message }}</div>
+            @enderror
+            <label for="frequency">Frequency: <span style="color: red;">*</span></label>
+            <select id="frequency" name="frequency" required>
+                <option value="">-- Select Frequency --</option>
+                <option value="Once daily" {{ old('frequency', $pivotData->frequency) == 'Once daily' ? 'selected' : '' }}>Once daily</option>
+                <option value="Twice daily" {{ old('frequency', $pivotData->frequency) == 'Twice daily' ? 'selected' : '' }}>Twice daily</option>
+                <option value="Three times daily" {{ old('frequency', $pivotData->frequency) == 'Three times daily' ? 'selected' : '' }}>Three times daily</option>
+                <option value="Four times daily" {{ old('frequency', $pivotData->frequency) == 'Four times daily' ? 'selected' : '' }}>Four times daily</option>
+                <option value="Every 4 hours" {{ old('frequency', $pivotData->frequency) == 'Every 4 hours' ? 'selected' : '' }}>Every 4 hours</option>
+                <option value="Every 6 hours" {{ old('frequency', $pivotData->frequency) == 'Every 6 hours' ? 'selected' : '' }}>Every 6 hours</option>
+                <option value="Every 8 hours" {{ old('frequency', $pivotData->frequency) == 'Every 8 hours' ? 'selected' : '' }}>Every 8 hours</option>
+                <option value="Once weekly" {{ old('frequency', $pivotData->frequency) == 'Once weekly' ? 'selected' : '' }}>Once weekly</option>
+                <option value="As needed" {{ old('frequency', $pivotData->frequency) == 'As needed' ? 'selected' : '' }}>As needed</option>
+                <option value="Before bed" {{ old('frequency', $pivotData->frequency) == 'Before bed' ? 'selected' : '' }}>Before bed</option>
+                <option value="With meals" {{ old('frequency', $pivotData->frequency) == 'With meals' ? 'selected' : '' }}>With meals</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            @error('start_date')
+            <div class="alert alert-error">{{ $message }}</div>
+            @enderror
+            <label for="start_date">Start Date: <span style="color: red;">*</span></label>
+            <input type="date" id="start_date" name="start_date"
+                   value="{{ old('start_date', $pivotData->start_date) }}" required>
+        </div>
+
+        <div class="form-group">
+            @error('end_date')
+            <div class="alert alert-error">{{ $message }}</div>
+            @enderror
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date"
+                   value="{{ old('end_date', $pivotData->end_date) }}">
+            <small style="color: #666; display: block; margin-top: 5px;">Leave blank if ongoing</small>
+        </div>
+
+        <div class="form-group">
+            @error('instructions')
+            <div class="alert alert-error">{{ $message }}</div>
+            @enderror
+            <label for="instructions">Instructions:</label>
+            <textarea id="instructions" name="instructions" rows="4"
+                      style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: Arial, sans-serif;">{{ old('instructions', $pivotData->instructions) }}</textarea>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-success">Update Prescription</button>
+            <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+@endsection
