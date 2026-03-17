@@ -162,6 +162,8 @@ class RolePermissionSeeder extends Seeder
             'view-medical-records',
             'view-reports',
             'use-advanced-search',
+            'view-activity-log',
+            'view-users',
         ]);
 
         // Create Demo Users with Roles
