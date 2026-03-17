@@ -30,7 +30,7 @@
                             <label for="end_date" class="form-label">End Date</label>
                             <input type="date" class="form-control" id="end_date" name="end_date" value="{{ request('end_date') }}">
                         </div>
-                        <div class="col-md-4 d-flex align-items-end gap-2">
+                        <div class="col-md-12 d-flex align-items-end gap-2 mt-2">
                             <button type="submit" class="btn btn-primary">Apply Filter</button>
                             <a href="{{ route('reports.appointments') }}" class="btn btn-secondary">Clear</a>
                             @can('export-reports')
