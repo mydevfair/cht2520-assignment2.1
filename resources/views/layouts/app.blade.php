@@ -64,7 +64,7 @@
 </main>
 
 <footer>
-    <p class="mb-0">&copy; 2025 Health and Medication Service</p>
+    <p class="mb-0">&copy; 2026 Health and Medication Service</p>
 </footer>
 
 <!-- jQuery  -->
