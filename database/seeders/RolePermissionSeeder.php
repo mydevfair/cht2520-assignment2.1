@@ -151,6 +151,19 @@ class RolePermissionSeeder extends Seeder
             'use-advanced-search',
         ]);
 
+        // 5. Viewer Role - Read only access for demos and recruiters
+        $viewerRole = Role::create(['name' => 'Viewer']);
+        $viewerRole->givePermissionTo([
+            'view-patients',
+            'view-doctors',
+            'view-medications',
+            'view-appointments',
+            'view-calendar',
+            'view-medical-records',
+            'view-reports',
+            'use-advanced-search',
+        ]);
+
         // Create Demo Users with Roles
 
         // Admin User
@@ -189,11 +202,21 @@ class RolePermissionSeeder extends Seeder
         ]);
         $nurse->assignRole('Nurse');
 
+        // Viewer User
+        $viewer = User::create([
+            'name' => 'Demo Viewer',
+            'email' => 'demo@hospital.com',
+            'password' => Hash::make('password'),
+            'email_verified_at' => now(),
+        ]);
+        $viewer->assignRole('Viewer');
+
         $this->command->info('Roles and permissions created successfully!');
         $this->command->info('Demo users created:');
         $this->command->info('Admin: admin@hospital.com / password');
         $this->command->info('Doctor: doctor@hospital.com / password');
         $this->command->info('Receptionist: receptionist@hospital.com / password');
         $this->command->info('Nurse: nurse@hospital.com / password');
+        $this->command->info('Viewer: demo@hospital.com / password');
     }
 }
