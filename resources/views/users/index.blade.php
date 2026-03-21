@@ -17,7 +17,9 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
+            @can('edit-users')
+                <th>Email</th>
+            @endcan
             <th>Role</th>
             <th>Actions</th>
         </tr>
@@ -27,7 +29,9 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
+                @can('edit-users')
+                    <td>{{ $user->email }}</td>
+                @endcan
                 <td>{{ $user->role_names }}</td>
                 <td>
                     <div class="d-flex justify-content-end gap-2">
@@ -72,9 +76,9 @@
                 lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
                 responsive: true,
                 columnDefs: [
-                    { orderable: false, targets: 4 },
-                    { className: 'dt-body-right', targets: 4 },
-                    { width: '200px', targets: 4 }
+                    { orderable: false, targets: -1 },
+                    { className: 'dt-body-right', targets: -1 },
+                    { width: '200px', targets: -1 }
                 ],
                 order: [[0, 'asc']],
                 language: {

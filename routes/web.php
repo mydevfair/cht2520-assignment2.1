@@ -55,8 +55,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/search', [SearchController::class, 'index'])->name('search.index');
     Route::post('/search', [SearchController::class, 'search'])->name('search.search');
 
-    Route::middleware(['role:Admin'])->resource('users', UserController::class);
+    Route::middleware(['can:view-users'])->group(function () {
+        Route::resource('users', UserController::class)->only(['index', 'show']);
+    });
 
+    Route::middleware(['role:Admin'])->group(function () {
+        Route::resource('users', UserController::class)->except(['index', 'show']);
+    });
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('edit');
         Route::patch('/', [ProfileController::class, 'update'])->name('update');
