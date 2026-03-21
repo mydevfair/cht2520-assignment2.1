@@ -71,8 +71,10 @@
         <span class="badge" style="background-color: #e74c3c; margin-left: 10px;">Cancelled</span>
     </div>
 
-    <div id="calendar"
-         style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></div>
+    <div class="table-responsive">
+        <div id="calendar"
+             style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); min-width: 300px;"></div>
+    </div>
 
     <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel"
          aria-hidden="true">
@@ -136,9 +138,13 @@
             const calendarEl = document.getElementById('calendar');
 
             const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
+                initialView: window.innerWidth < 768 ? 'listWeek' : 'dayGridMonth',
 
-                headerToolbar: {
+                headerToolbar: window.innerWidth < 768 ? {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'today'
+                } : {
                     left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
