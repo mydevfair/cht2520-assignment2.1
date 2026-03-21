@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('medical-records/{medicalRecord}/download', [MedicalRecordController::class, 'download'])
         ->name('medical-records.download');
 
-    Route::middleware(['role:Admin'])->group(function () {
+    Route::middleware(['can:view-activity-log'])->group(function () {
         Route::get('activity-log', [ActivityLogController::class, 'index'])->name('activity-log.index');
     });
 
