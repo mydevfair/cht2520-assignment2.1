@@ -277,7 +277,7 @@
                             </h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">Search across all records in the system all from one place.</p>
+                            <p class="card-text">Search across all records in the system.</p>
                             <div class="d-grid gap-2">
                                 <a href="{{ route('search.index') }}" class="btn" style="background-color: #607d8b; color: white;">
                                     Search Records
