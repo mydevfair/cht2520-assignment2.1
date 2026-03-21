@@ -241,5 +241,17 @@
                 }
             }
         });
+
+        const charts = [statusCtx, doctorCtx, monthCtx].map(ctx => Chart.getChart(ctx));
+
+        const resizeObserver = new ResizeObserver(() => {
+            charts.forEach(chart => {
+                if (chart) chart.resize();
+            });
+        });
+
+        document.querySelectorAll('canvas').forEach(canvas => {
+            resizeObserver.observe(canvas.parentElement);
+        });
     </script>
 @endpush
