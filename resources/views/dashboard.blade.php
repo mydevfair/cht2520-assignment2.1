@@ -14,8 +14,8 @@
         <!-- Quick Stats Row -->
         <div class="row mb-4">
             @can('view-patients')
-                <div class="col-md-3">
-                    <div class="card border-primary">
+                <div class="col-md">
+                    <div class="card border-primary h-100">
                         <div class="card-body text-center">
                             <h3 class="text-primary">{{ $totalPatients }}</h3>
                             <p class="mb-0">Total Patients</p>
@@ -25,8 +25,8 @@
             @endcan
 
             @can('view-doctors')
-                <div class="col-md-3">
-                    <div class="card border-success">
+                <div class="col-md">
+                    <div class="card border-success h-100">
                         <div class="card-body text-center">
                             <h3 class="text-success">{{ $totalDoctors }}</h3>
                             <p class="mb-0">Total Doctors</p>
@@ -36,8 +36,8 @@
             @endcan
 
             @can('view-appointments')
-                <div class="col-md-3">
-                    <div class="card border-info">
+                <div class="col-md">
+                    <div class="card border-info h-100">
                         <div class="card-body text-center">
                             <h3 class="text-info">{{ $scheduledAppointments }}</h3>
                             <p class="mb-0">Scheduled Appointments</p>
@@ -47,8 +47,8 @@
             @endcan
 
             @can('view-medications')
-                <div class="col-md-3">
-                    <div class="card border-warning">
+                <div class="col-md">
+                    <div class="card border-warning h-100">
                         <div class="card-body text-center">
                             <h3 class="text-warning">{{ $totalMedications }}</h3>
                             <p class="mb-0">Total Medications</p>
