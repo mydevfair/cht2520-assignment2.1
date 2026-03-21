@@ -8,7 +8,7 @@
 
         {{-- Collapsible content --}}
         <div class="collapse navbar-collapse" id="mainNavbar">
-            <div class="d-flex flex-column flex-xl-row flex-wrap gap-2 me-auto py-2 py-xl-0">
+            <div class="d-flex flex-column flex-xxl-row flex-wrap gap-2 me-auto py-2 py-xl-0">
 
                 {{-- Home / Dashboard --}}
                 <a href="{{ route('dashboard') }}" class="btn btn-sm {{ request()->routeIs('dashboard') ? 'btn-light' : 'btn-outline-light' }}">
