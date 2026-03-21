@@ -50,7 +50,7 @@
                     <h5 class="mb-0">Appointments by Status</h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="statusChart"></canvas>
+                    <canvas id="statusChart" style="height: 300px;"></canvas>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                     <h5 class="mb-0">Appointments by Doctor</h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="doctorChart"></canvas>
+                    <canvas id="doctorChart" style="height: 300px;"></canvas>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     <h5 class="mb-0">Appointments by Month</h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="monthChart"></canvas>
+                    <canvas id="monthChart" style="height: 300px;"></canvas>
                 </div>
             </div>
         </div>
@@ -166,6 +166,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         display: false
@@ -200,6 +201,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         position: 'bottom'
@@ -231,6 +233,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true,
