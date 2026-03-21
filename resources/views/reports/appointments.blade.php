@@ -131,9 +131,22 @@
         $(document).ready(function() {
             $('#appointmentsTable').DataTable({
                 dom: 'Bfrtip',
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+                buttons: [
+                    'copy',
+                    'csv',
+                    'excel',
+                    'pdf',
+                    'print',
+                    'colvis'
+                ],
                 pageLength: 10,
-                order: [[3, 'desc']]
+                lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                responsive: true,
+                order: [[3, 'desc']],
+                language: {
+                    search: "Search appointments:",
+                    searchPlaceholder: "Patient, doctor, status..."
+                }
             });
         });
 
