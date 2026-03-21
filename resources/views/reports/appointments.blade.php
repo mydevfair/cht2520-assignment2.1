@@ -242,8 +242,6 @@
             }
         });
 
-        const charts = [statusCtx, doctorCtx, monthCtx].map(ctx => Chart.getChart(ctx));
-
         const resizeObserver = new ResizeObserver(() => {
             [statusChart, doctorChart, monthChart].forEach(chart => {
                 if (chart) chart.resize();
@@ -253,4 +251,5 @@
         document.querySelectorAll('canvas').forEach(canvas => {
             resizeObserver.observe(canvas.parentElement);
         });
+    </script>
 @endpush
