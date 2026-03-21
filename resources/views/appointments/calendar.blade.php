@@ -194,6 +194,20 @@
             });
 
             calendar.render();
+
+            window.addEventListener('resize', function() {
+                const isMobile = window.innerWidth < 768;
+                calendar.changeView(isMobile ? 'listWeek' : 'dayGridMonth');
+                calendar.setOption('headerToolbar', isMobile ? {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'today'
+                } : {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                });
+            });
         });
 
         /**
