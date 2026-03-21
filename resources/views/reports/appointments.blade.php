@@ -154,7 +154,7 @@
         const statusData = {!! json_encode($statusStats->pluck('count')) !!};
 
         const statusCtx = document.getElementById('statusChart').getContext('2d');
-        new Chart(statusCtx, {
+        const statusChart = new Chart(statusCtx, {
             type: 'bar',
             data: {
                 labels: statusLabels,
@@ -186,7 +186,7 @@
         const doctorData = {!! json_encode($appointmentsByDoctor->pluck('count')) !!};
 
         const doctorCtx = document.getElementById('doctorChart').getContext('2d');
-        new Chart(doctorCtx, {
+        const doctorChart = new Chart(doctorCtx, {
             type: 'doughnut',
             data: {
                 labels: doctorLabels,
@@ -216,7 +216,7 @@
         });
 
         const monthCtx = document.getElementById('monthChart').getContext('2d');
-        new Chart(monthCtx, {
+        const monthChart = new Chart(monthCtx, {
             type: 'line',
             data: {
                 labels: monthLabels,
@@ -245,7 +245,7 @@
         const charts = [statusCtx, doctorCtx, monthCtx].map(ctx => Chart.getChart(ctx));
 
         const resizeObserver = new ResizeObserver(() => {
-            charts.forEach(chart => {
+            [statusChart, doctorChart, monthChart].forEach(chart => {
                 if (chart) chart.resize();
             });
         });
@@ -253,5 +253,4 @@
         document.querySelectorAll('canvas').forEach(canvas => {
             resizeObserver.observe(canvas.parentElement);
         });
-    </script>
 @endpush
