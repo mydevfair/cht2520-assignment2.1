@@ -20,10 +20,12 @@
                         <div class="col-md-9">{{ $user->name }}</div>
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col-md-3 fw-bold">Email:</div>
-                        <div class="col-md-9">{{ $user->email }}</div>
-                    </div>
+                    @can('edit-users')
+                        <div class="row mb-3">
+                            <div class="col-md-3 fw-bold">Email:</div>
+                            <div class="col-md-9">{{ $user->email }}</div>
+                        </div>
+                    @endcan
 
                     <div class="row mb-3">
                         <div class="col-md-3 fw-bold">Role:</div>
