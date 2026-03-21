@@ -1,16 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark py-2">
     <div class="container-fluid">
 
-        {{-- Hamburger toggle (visible on mobile) --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        {{-- Collapsible content --}}
         <div class="collapse navbar-collapse" id="mainNavbar">
-            <div class="d-flex flex-column flex-xxl-row flex-wrap gap-2 me-auto py-2 py-xl-0">
+            <div class="d-flex flex-row flex-wrap gap-2 me-auto py-2 py-lg-0">
 
-                {{-- Home / Dashboard --}}
                 <a href="{{ route('dashboard') }}" class="btn btn-sm {{ request()->routeIs('dashboard') ? 'btn-light' : 'btn-outline-light' }}">
                     Home
                 </a>
@@ -70,8 +67,7 @@
                 @endcan
             </div>
 
-            {{-- Authentication --}}
-            <div class="d-flex flex-column flex-xl-row gap-2 align-items-start align-items-xl-center py-2 py-xl-0">
+            <div class="d-flex flex-row flex-wrap gap-2 align-items-center py-2 py-lg-0">
                 @auth
                     <span class="text-white">{{ Auth::user()->name }}</span>
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-sm btn-outline-light">
