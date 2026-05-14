@@ -56,5 +56,8 @@
                 </div>
             @endif
         </form>
+        <div>
+            <h3>Username = demo@hospital.com <br> Password = password</h3>
+        </div>
     </div>
 @endsection
